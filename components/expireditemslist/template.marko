@@ -1,0 +1,19 @@
+<div class="expired-items" w-bind>
+  <h3>Expired Items</h3>
+  <if test="data.currentExpiredItem">
+    <div class="expired-item-container" data-itemid="${data.currentExpiredItem.itemId}">
+      <img src="${data.currentExpiredItem.itemUrl}" alt="${data.currentExpiredItem.itemName}" />
+      <br/>
+      <span class="name">${data.currentExpiredItem.itemName}</span>
+      <br/>
+      <span class="price">${data.currentExpiredItem.price}</span>
+    </div>
+    <div class="actions">
+      <button type="button" name="skip">Skip</button>
+      <button type="button" name="next" disabled="{?data.isLast;true}" w-onClick="fetchNextItem">Next</button>
+    </div>
+  </if>
+  <else>
+    Loading...
+  </else>
+</div>
